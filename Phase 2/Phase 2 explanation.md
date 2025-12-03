@@ -1,7 +1,8 @@
 # FLOWCHART OVERVIEW
 
 👉 **Flowchart Diagram:**  
-[View flowchart diagram](Phase%202/My%20Project%20BM.drawio.png)
+![Flowchart](My%20project%20BM.drawio.png)
+
 
 The **Smart Medicine Inventory and Demand Optimization System** manages the full flow of medicines from sale or purchase to stock monitoring, expiry control, and replenishment across branches. It has **five main components**:
 
