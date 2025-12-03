@@ -34,11 +34,8 @@ After the pharmacist submits a transaction, the system automatically:
 ### After manager approves a transfer:
 The **Inventory System**:
 
-- Creates the transfer record  
-- Logs the Transfer_ID  
+- Creates the transfer record   
 - Notifies the branch receiving near-expiry medicines  
-
-The system is the “brain” doing all calculations and sending notifications.
 
 ---
 
