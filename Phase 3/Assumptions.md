@@ -12,5 +12,4 @@ These assumptions describe how the system works and what rules it follows.
 - FEFO (First‑Expired‑First‑Out) is used when selecting which batch to sell first.
 - If a branch does not set its own threshold, the system uses the global reorder point from the Medicines table.
 - All dates and times (transactions, alerts, predictions) are assumed to be accurate.
-- Users may belong to a branch or be global (e.g., Admin).
 - Alerts are not deleted; they stay in the system for audit and reporting.
