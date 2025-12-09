@@ -99,12 +99,12 @@ I also created:
    - Make sure they compile successfully, because triggers depend on them.  
 
 4. **Compile triggers**:  
-   - Go to the `phase V/datascripts` folder.  
+   - Go to the `phase V/Triggers.sql` folder.  
    - Compile the simple triggers first (`trg_medicines_simple`, `trg_suppliers_simple`, `trg_users_simple`).  
    - Then compile the compound triggers (like `trg_medicines_compound`).  
 
 5. **Insert sample data**:  
-   - Use the test scripts from the `tests` folder to insert sample medicines, suppliers, and users.  
+   - Use the test scripts from the `Phase V/Insert data` folder to insert sample medicines, suppliers, and users.  
    - This will also trigger your auditing and restriction checks.  
 
 6. **Check results**:  
