@@ -42,3 +42,13 @@ EXCEPTION
         ROLLBACK;
 END update_inventory;
 /
+
+-- test procedure
+
+SET SERVEROUTPUT ON;
+DECLARE
+  v_prev_qty NUMBER := 100; -- the new quantity to set
+BEGIN
+  update_inventory(1, 1, v_prev_qty);
+END;
+/
