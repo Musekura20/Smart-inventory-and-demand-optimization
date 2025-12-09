@@ -29,3 +29,14 @@ EXCEPTION
     p_new_med_id := NULL;
 END reg_medicine;
 /
+
+-- test procedure
+
+SET SERVEROUTPUT ON;
+DECLARE
+  v_med_id NUMBER;
+BEGIN
+  reg_medicine('Paracetamol', 'Tablet', 15, v_med_id);
+  DBMS_OUTPUT.PUT_LINE('New medicine ID: ' || v_med_id);
+END;
+/
