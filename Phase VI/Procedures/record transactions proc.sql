@@ -68,3 +68,15 @@ EXCEPTION
         p_new_trans_id := NULL;
 END record_transaction;
 /
+
+--test procedure
+
+SET SERVEROUTPUT ON;
+DECLARE
+  v_trans_id NUMBER;
+BEGIN
+  -- assume medicine_id=1 and branch_id=1 exist
+  record_transaction(1, 1, 50, 'RESTOCK', NULL, NULL, v_trans_id);
+  DBMS_OUTPUT.PUT_LINE('New transaction ID: ' || v_trans_id);
+END;
+/
