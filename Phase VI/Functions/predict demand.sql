@@ -31,3 +31,15 @@ EXCEPTION
     RETURN 0;
 END predict_demand;
 /
+
+-- test function
+
+SET SERVEROUTPUT ON;
+DECLARE
+  v_pred NUMBER;
+BEGIN
+  v_pred := predict_demand(1, 1, 3);
+  DBMS_OUTPUT.PUT_LINE('Predicted demand: ' || v_pred);
+END;
+/
+
