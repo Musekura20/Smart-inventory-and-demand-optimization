@@ -2,7 +2,7 @@ SET SERVEROUTPUT ON;
 
 CREATE OR REPLACE PROCEDURE generate_low_stock_alerts(
     p_branch_id IN NUMBER DEFAULT NULL, 
-    p_alerts_created OUT NUMBER
+    p_alerts_created OUT VARCHAR2
 ) IS
     CURSOR c_low IS
       SELECT inv.Medicine_ID, inv.Branch_ID, inv.Quantity_on_hand, NVL(inv.Threshold, m.Reorder_Point) eff_th
@@ -45,6 +45,6 @@ EXCEPTION
         -- Use log_error_proc if log_error is only inside your package
         log_error_proc('generate_low_stock_alerts','OTHERS', SQLERRM, DBMS_UTILITY.FORMAT_ERROR_BACKTRACE);
         ROLLBACK;
-        p_alerts_created := -1;
+        p_alerts_created := 'LOW STOCK';
 END generate_low_stock_alerts;
 /
