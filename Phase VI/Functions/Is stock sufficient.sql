@@ -38,3 +38,14 @@ EXCEPTION
     RETURN 'ERROR';
 END is_stock_sufficient;
 /
+
+-- test function
+
+SET SERVEROUTPUT ON;
+DECLARE
+  v_status VARCHAR2(20);
+BEGIN
+  v_status := is_stock_sufficient(1, 1, 50);
+  DBMS_OUTPUT.PUT_LINE('Stock sufficient? ' || v_status);
+END;
+/
