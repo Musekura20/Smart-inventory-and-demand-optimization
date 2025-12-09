@@ -16,4 +16,25 @@ EXCEPTION
     ROLLBACK;
 END log_error_proc;
 /
+-- test
+SET SERVEROUTPUT ON;
 
+DECLARE
+  v_num NUMBER;
+BEGIN
+  -- This will cause a divide by zero error
+  v_num := 10 / 0;
+
+EXCEPTION
+  WHEN OTHERS THEN
+    -- Call your log_error_proc to store the error
+    log_error_proc(
+      p_proc_name => 'TEST_LOG_ERROR',
+      p_err_code  => SQLCODE,
+      p_err_msg   => SQLERRM,
+      p_backtrace => DBMS_UTILITY.FORMAT_ERROR_BACKTRACE
+    );
+
+    DBMS_OUTPUT.PUT_LINE('Error logged successfully!');
+END;
+/
