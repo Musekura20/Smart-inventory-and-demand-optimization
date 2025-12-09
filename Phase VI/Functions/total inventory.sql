@@ -18,3 +18,14 @@ EXCEPTION
     RETURN 0;
 END total_inventory;
 /
+
+-- test function
+SET SERVEROUTPUT ON;
+DECLARE
+  v_total NUMBER;
+BEGIN
+  v_total := total_inventory(1);
+  DBMS_OUTPUT.PUT_LINE('Total inventory: ' || v_total);
+END;
+/
+
