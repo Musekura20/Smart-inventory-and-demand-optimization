@@ -10,3 +10,15 @@ CREATE OR REPLACE FUNCTION get_supplier_name(p_supplier_id IN NUMBER) RETURN VAR
       log_error_proc('get_supplier_name','OTHERS', SQLERRM, DBMS_UTILITY.FORMAT_ERROR_BACKTRACE);
       RETURN 'ERROR';
   END get_supplier_name;
+/
+
+--test function
+
+SET SERVEROUTPUT ON;
+DECLARE
+  v_name VARCHAR2(200);
+BEGIN
+  v_name := get_supplier_name(1); -- assuming supplier_id=1 exists
+  DBMS_OUTPUT.PUT_LINE('Supplier name: ' || v_name);
+END;
+/
