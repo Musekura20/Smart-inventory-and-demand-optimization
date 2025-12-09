@@ -41,3 +41,15 @@ EXCEPTION
         p_rows_inserted := -1;
 END compute_and_store_top_sellers;
 /
+
+-- test procedure
+
+SET SERVEROUTPUT ON;
+DECLARE
+  v_inserted NUMBER;
+BEGIN
+  compute_and_store_top_sellers(1, 5, v_inserted);
+  DBMS_OUTPUT.PUT_LINE('Top sellers inserted: ' || v_inserted);
+END;
+/
+
