@@ -19,3 +19,14 @@ EXCEPTION
         p_deleted_count := -1;
 END delete_old_alerts;
 /
+
+-- test procedure
+
+SET SERVEROUTPUT ON;
+DECLARE
+  v_deleted NUMBER;
+BEGIN
+  delete_old_alerts(30, v_deleted);
+  DBMS_OUTPUT.PUT_LINE('Deleted alerts count: ' || v_deleted);
+END;
+/
