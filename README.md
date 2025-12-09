@@ -45,7 +45,7 @@ Used to:
 - Check expiry dates  
 - Calculate stock needs  
 - Compute top sellers
-  [Functions](./Phase%20VI/functions.sql) 
+ 
 
 ### Triggers
 Used to:  
@@ -54,7 +54,7 @@ Used to:
 - Block dangerous operations (like editing on weekends)  
 - Send expiry alerts  
 - Record audit logs  
-[triggers.sql](phase%20V/datascripts/triggers.sql)
+
 ### Cursors
 Used to loop through lists of medicines for reports and expiry checks.
 
@@ -87,7 +87,29 @@ I also created:
 ---
 
 ## 7. Quick Start Instructions
-1. Clone or download the project folder  
-2. Open SQL Developer  
-3. Run the scripts in this order:
+
+1. **Open Oracle SQL Developer** and connect to your database.  
+
+2. **Create tables and sequences**:  
+   - Run the scripts in the [Phase V](phase%20V) folder to create all 13 tables and their sequences.  
+   - This will ensure your IDs are automatically generated when inserting data.  
+
+3. **Compile functions and procedures**:  
+   - Go to the `phase VI/functions` folder and compile all functions, including `Check_Restriction` and `Log_Audit_Func`.  
+   - Make sure they compile successfully, because triggers depend on them.  
+
+4. **Compile triggers**:  
+   - Go to the `phase V/datascripts` folder.  
+   - Compile the simple triggers first (`trg_medicines_simple`, `trg_suppliers_simple`, `trg_users_simple`).  
+   - Then compile the compound triggers (like `trg_medicines_compound`).  
+
+5. **Insert sample data**:  
+   - Use the test scripts from the `tests` folder to insert sample medicines, suppliers, and users.  
+   - This will also trigger your auditing and restriction checks.  
+
+6. **Check results**:  
+   - Verify which inserts were allowed or denied using the audit log:  
+```sql
+SELECT * FROM Audit_Log ORDER BY Attempt_Time DESC;
+
 
