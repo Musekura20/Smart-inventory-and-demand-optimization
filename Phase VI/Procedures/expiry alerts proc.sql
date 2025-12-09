@@ -61,3 +61,15 @@ EXCEPTION
         p_alerts_created := 'Some medecines are about to be expired';
 END generate_expiry_alerts;
 /
+
+-- test procedure
+
+SET SERVEROUTPUT ON;
+DECLARE
+  v_created NUMBER;
+BEGIN
+  generate_expiry_alerts(60, v_created);
+  DBMS_OUTPUT.PUT_LINE('Expiry alerts created: ' || v_created);
+END;
+/
+
