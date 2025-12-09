@@ -48,3 +48,15 @@ EXCEPTION
         p_alerts_created := 'LOW STOCK';
 END generate_low_stock_alerts;
 /
+
+-- test procedure
+
+SET SERVEROUTPUT ON;
+DECLARE
+  v_created NUMBER;
+BEGIN
+  generate_low_stock_alerts(NULL, v_created);
+  DBMS_OUTPUT.PUT_LINE('Low stock alerts created: ' || v_created);
+END;
+/
+
